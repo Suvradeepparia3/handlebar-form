@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Form</title>
+    </head>
+<style>
+p{
+    font-size: 10px;
+    color:red;
+    display: none;
+}
+</style>
+
+<body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+
+
+    <script type="text/x-handlebars-template" id="form-template">
+    {{#data}}
+    {{{userName}}}
+    {{{userEmail}}}
+    {{{userPhone}}}
+    {{/data}}
+    </script>
+<div class="formDiv">
+<h1 id="heading">Register here</h1>
+<form name="myForm" onsubmit="return validateForm()" method="post" id="frm">
+        <label id="nameLabel">Name: </label><br>
+        <input type="text" name="fname" id="nameField"><br>
+        <p id='nameInputError'>Name must not be empty</p><br>
+        <label id="emailLabel">Email: </label><br>
+        <input type="text" name="femail" id="emailField"><br>
+        <p id='emailInputError'>Name must not be empty</p><br>
+        <label id="phoneLabel">Phone: </label><br>
+        <input type="text" name="fphone" id="phoneField"><br>
+        <p id='phoneInputError'>Name must not be empty</p><br>
+        <input type="submit" value="Submit">
+</form>
+</div>
+<div id="form-container" style="margin-top: 20px"></div>
+
+
+<script src="form.js"></script>
+
+</body>
+
+</html>
+
