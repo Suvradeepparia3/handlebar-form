@@ -1,11 +1,23 @@
 function validateForm() {
+
     var name = document.forms["myForm"]["fname"].value;
     var email = document.forms["myForm"]["femail"].value;
     var phone = document.forms["myForm"]["fphone"].value;
 
+    // requiredfield check
+    requiredFieldCheck(name, email, phone);
+
+    // email and phpne validation
+    emailAndPhoneValidation(name, email, phone);
+
+
+    return false;
+};
+
+function requiredFieldCheck(name, email, phone) {
     if (name == '' || email == '' || phone == '') {
         document.getElementById('heading').style.color = 'red';
-        document.getElementById('heading').innerHTML = 'Error submitting the form. Please correct the errors below.';
+        document.getElementById('heading').innerHTML = 'Error submitting the form.';
     }
 
     if (name == '') {
@@ -36,6 +48,9 @@ function validateForm() {
         document.getElementById('phoneInputError').style.display = '';
     }
 
+}
+
+function emailAndPhoneValidation(name, email, phone) {
     var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (email.match(mailformat)) {
         var phoneno = /^\d{10}$/;
@@ -50,15 +65,14 @@ function validateForm() {
     else {
         alert('Invalid email');
     }
+}
 
-
-    return false;
-};
 function afterSave(name, email, phone) {
 
     var label = {
-        data: [{ userName: name }, { userEmail: email }, { userPhone: phone }]
+        data: [{ userName: name, userEmail: email, userPhone: phone }]
     };
+
 
     var source = document.getElementById("form-template").innerHTML;
 

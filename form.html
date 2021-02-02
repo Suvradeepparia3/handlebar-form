@@ -3,11 +3,14 @@
     <head>
     <title>Form</title>
     </head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <style>
 p{
-    font-size: 10px;
+    font-size: 15px;
     color:red;
     display: none;
+    margin: 0;
 }
 </style>
 
@@ -18,28 +21,74 @@ p{
 
 
     <script type="text/x-handlebars-template" id="form-template">
+     
+     <div class="container">
+    <div class="row justify-content-md-center">
+    <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
     {{#data}}
-    {{{userName}}}
-    {{{userEmail}}}
-    {{{userPhone}}}
+        <div class="card-header">Name: {{{userName}}}</div>
+        <div class="card-body">
+            <div class="card-title">Email: {{{userEmail}}}</div>
+            <div class="card-text">Phone: {{{userPhone}}}</div>
+        </div>
     {{/data}}
+    </div>
+    </div>
+    </div>
+
     </script>
-<div class="formDiv">
-<h1 id="heading">Register here</h1>
+
+<div class="container">
+<div class="row justify-content-md-center">
+
 <form name="myForm" onsubmit="return validateForm()" method="post" id="frm">
-        <label id="nameLabel">Name: </label><br>
-        <input type="text" name="fname" id="nameField"><br>
-        <p id='nameInputError'>Name must not be empty</p><br>
-        <label id="emailLabel">Email: </label><br>
-        <input type="text" name="femail" id="emailField"><br>
-        <p id='emailInputError'>Name must not be empty</p><br>
-        <label id="phoneLabel">Phone: </label><br>
-        <input type="text" name="fphone" id="phoneField"><br>
-        <p id='phoneInputError'>Name must not be empty</p><br>
-        <input type="submit" value="Submit">
+                <h4 id="heading">Register here</h4>
+                 <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="inputPassword4" id="nameLabel">Name</label>
+                    <input type="text" class="form-control" name="fname" id="nameField" placeholder="Your name">
+                    <p id='nameInputError'>Name must not be empty</p>
+                    </div>
+                    <div class="form-group col-md-6">
+                    <label for="inputEmail4" id="emailLabel">Email</label>
+                    <input type="email" class="form-control" name="femail" id="emailField" placeholder="Email">
+                    <p id='emailInputError'>Email must not be empty</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress2">Address 2</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="inputCity" id="phoneLabel">Phone</label>
+                    <input type="number" class="form-control" name="fphone" id="phoneField">
+                    <p id='phoneInputError'>Phone must not be empty</p><br>
+                    </div>
+                    <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>...</option>
+                    </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <input type="text" class="form-control" id="inputZip">
+                    </div>
+                </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
 </div>
+</div>
+
 <div id="form-container" style="margin-top: 20px"></div>
+
 
 
 <script src="form.js"></script>
